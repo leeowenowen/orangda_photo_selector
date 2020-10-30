@@ -1,8 +1,7 @@
 name: orangda_photo_selector
 description: A Flutter Photo Select  plugin.
 version: 0.0.1
-author:
-homepage:https://github.com/leeowenowen/orangda_photo_selector
+homepage: https://github.com/leeowenowen/orangda_photo_selector
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
