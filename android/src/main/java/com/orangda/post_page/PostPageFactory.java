@@ -5,17 +5,26 @@ import android.content.Context;
 import java.util.Map;
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
+import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.plugin.common.StandardMessageCodec;
 import io.flutter.plugin.platform.PlatformView;
 import io.flutter.plugin.platform.PlatformViewFactory;
 
 public class PostPageFactory extends PlatformViewFactory {
-    private final FlutterPlugin.FlutterPluginBinding binding;
+    private  FlutterPlugin.FlutterPluginBinding mFlutterPluginBinding;
+    private ActivityPluginBinding mActivityPluginBindingp;
 
-    public PostPageFactory(FlutterPlugin.FlutterPluginBinding binding) {
+    public PostPageFactory() {
         super(StandardMessageCodec.INSTANCE);
-        this.binding = binding;
+    }
+
+    public void setFlutterPluginBinding(FlutterPlugin.FlutterPluginBinding flutterPluginBinding){
+        mFlutterPluginBinding = flutterPluginBinding;
+    }
+
+    public void setActivityPluginBinding(ActivityPluginBinding activityPluginBinding){
+        mActivityPluginBindingp = activityPluginBinding;
     }
 
     @Override
@@ -24,6 +33,6 @@ public class PostPageFactory extends PlatformViewFactory {
         if(o != null) {
          params =(Map<String, Object>) o;
         }
-        return new PostPage(context, this.binding, i, params);
+        return new PostPage(context, this.mFlutterPluginBinding, this.mActivityPluginBindingp, i, params);
     }
 }
